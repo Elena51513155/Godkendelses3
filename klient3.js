@@ -13,10 +13,8 @@ var generateUserID = (function () {
     var counter = 0;
     return function  ()  {counter += 1; return counter}
 })()
-// den generator et user ID, sådan at alt efter hvordan de opretter sig, kommer til at være nummereret i den rækkefølge de registretrer sig
-
-
 }
+// den generator et user ID, sådan at alt efter hvordan de opretter sig, kommer til at være nummereret i den rækkefølge de registretrer sig
 
 class PaymentUser extends User {
     constructor(superLike){
@@ -24,14 +22,12 @@ class PaymentUser extends User {
     }
 }
 
-class creditCard extends PaymentUser {
+class creditCard {
     constructor(cardName, cardNumber, cardExpireDate, cardCVC){
         this. cardName = cardName;
         this.cardNumber = cardNumber;
         this. cardExpireDate = cardExpireDate;
         this.cardCVC = cardCVC;
-
-
     }
 }
 class freeUser extends User {

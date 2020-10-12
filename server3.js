@@ -1,39 +1,18 @@
-const express = require('express')
-const app = express()
-const port = 3000
-var cors = require('corse')
+const http = require('http');
+const express = require('express');
 
-// a secret API endpoint that we are protecting
-app.get('/secret', (req, res) => {
-    res.json({ "message" : "THIS IS SUPER SECRET, DO NOT SHARE!" })
-})
-app.listen(port, 
-    () => console.log(`Simple Express app listening on port ${port}!`))
-    function isAuthenticated(req, res, next) {
-        if (typeof req.headers.authorization !== "undefined") {
-            // retrieve the authorization header and parse out the
-            // JWT using the split function
-            let token = req.headers.authorization.split(" ")[1];
-            let privateKey = fs.readFileSync('./private.pem', 'utf8');
-            // Here we validate that the JSON Web Token is valid and has been 
-            // created using the same private pass phrase
-            jwt.verify(token, privateKey, { algorithm: "HS256" }, (err, user) => {
-                
-                // if there has been an error...
-                if (err) {  
-                    // shut them out!
-                    res.status(500).json({ error: "Not Authorized" });
-                    throw new Error("Not Authorized");
-                }
-                // if the JWT is valid, allow them to hit
-                // the intended endpoint
-                return next();
-            });
-        } else {
-            // No authorization header exists on the incoming
-            // request, return not authorized and throw a new error 
-            res.status(500).json({ error: "Not Authorized" });
-            throw new Error("Not Authorized");
-            
-        }
-    }
+const app = express();
+app.use(express.json());
+
+// default URL to API
+app.use('/', function(req, res) {
+    res.send('Succes');
+});
+
+const server = http.createServer(app);
+const port = 3000;
+server.listen(port);
+
+console.debug('Server listening on port ' + port);
+
+var.test
