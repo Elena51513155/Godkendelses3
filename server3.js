@@ -15,3 +15,6 @@ server.listen(port);
 
 console.debug('Server listening on port ' + port);
 # Godkendelses3
+
+var.test = test
+
