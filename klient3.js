@@ -51,7 +51,7 @@ var storage = multer.diskStorage({
 
 })
 
-// måske brug nedestående
+// måske brug nedestående, ved ikke hvad den bruges til
 router.post('/', function (req, res) {
     // get itemIds from data array
     let itemIds = data.map(item => item.id);
