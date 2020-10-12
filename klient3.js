@@ -1,14 +1,21 @@
 class User {
-    constructor(name, age, city, interest, like, gender, email){
+    constructor(name, age, city, interest, gender, email, password, uniqueUserID){
     this.name = name;
     this.age = age;
     this.city = city;
     this.interest = interest;
-    this.like = like;
     this.gender = gender;
     this.email = email;
-
+    this.password = password;
+    this.uniqueUserID = uniqueUserID;
 }
+var generateUserID = (function () {
+    var counter = 0;
+    return function  ()  {counter += 1; return counter}
+})()
+// den generator et user ID, sådan at alt efter hvordan de opretter sig, kommer til at være nummereret i den rækkefølge de registretrer sig
+
+
 }
 
 class PaymentUser extends User {
@@ -43,8 +50,6 @@ var storage = multer.diskStorage({
   destination
 
 })
-
-
 
 // måske brug nedestående
 router.post('/', function (req, res) {
