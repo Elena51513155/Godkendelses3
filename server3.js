@@ -1,17 +1,31 @@
 
+// import express from 'express';
+
+// sådan at den snakker sammen med users filen
+// import usersRoutes from './routes/user.js';
+
+
 const express = require('express');
 const app = express();
-const port = process.env.port || 4000;
+const PORT = process.env.port || 4000;
 
-// vores basic route
+// sådan at vi bruger alle routerne i Users filen, så når folk besøger dem kører routerne
+// app.use('/users', usersRoutes)
+
+// et API endpint, vores basic route, med en get request til vores homepage '/', efterfulgt af 
 app.get("/", (req, res) => {
    res.send('hej')
 });
 
+app.get("/test", (req, res) => {
+    res.json({'test' : "kæmpe test"})
+ })
+ 
+
 // vi lytter på porten
-app.listen(port, err => {
+app.listen(PORT, err => {
     if (err) {
         return console.log("ERROR", err);
     }
-    console.log('listening on port http://localhost:${port}');
+    console.log(`listening on port http://localhost:${PORT}`);
 });
