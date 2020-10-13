@@ -13,7 +13,7 @@ var generateUserID = (function () {
     var counter = 0;
     return function  ()  {counter += 1; return counter}
 })()
-}
+
 // den generator et user ID, sådan at alt efter hvordan de opretter sig, kommer til at være nummereret i den rækkefølge de registretrer sig
 
 class PaymentUser extends User {

@@ -1,18 +1,17 @@
-const http = require('http');
+
 const express = require('express');
-
 const app = express();
-app.use(express.json());
+const port = process.env.port || 4000;
 
-// default URL to API
-app.use('/', function(req, res) {
-    res.send('Succes');
+// vores basic route
+app.get("/", (req, res) => {
+   
 });
 
-const server = http.createServer(app);
-const port = 3000;
-server.listen(port);
-
-console.debug('Server listening on port ' + port);
-
-var.test
+// vi lytter på porten
+app.listen(port, err => {
+    if (err) {
+        return console.log("ERROR", err);
+    }
+    console.log('listening on port ${port}');
+});
